@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<h1>Olá! Thymeleaf configurado!</h1>
+</body>
+
+
+	<form method="POST" th:object="${cerveja}">
+		<!-- fields é um objeto especial do thymeleaf -->
+		<span th:text="${#fields.hasAnyErrors()}"></span>
+		
+		<div th:each="erro : ${#fields.detailedErrors()}">
+			<span th:text="${erro.message}"></span>
+		</div>
+		
+		<span th:text=${mensagem}></span><br>
+	
+		<label for"sku">SKU</label>
+		<!-- uso o th:field para associar o input a um campo do objeto cerveja vinculado ao form usando o "*" -->
+		<input type="text" th:field="*{sku}"><br>
+		
+		<label for"nome">Nome</label>
+		<input type="text" th:field="*{nome}"><br>
+		
+		<label for"descricao">Descrição</label>
+		<textarea rows="3" cols="30" id="descricao" th:field="*{descricao}"></textarea><br>
+		
+		<input type="submit" value="Salvar">		
+	</form>
+
+</html>
