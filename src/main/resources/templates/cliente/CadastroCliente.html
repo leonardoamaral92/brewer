@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:th="http://www.thymeleaf.org"
+	   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	   layout:decorator="'layout/LayoutPadrao'">
+<head>	
+	<title>Cadastro de Cliente</title>
+</head>
+<body>
+	
+<section layout:fragment="conteudo">
+	
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1>
+				Cadastro de cliente
+			</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+	
+		<!-- <div class="alert  alert-danger  alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
+		</div> -->
+	
+		<form method="POST" th:object="${cliente}" class="form-vertical  js-form-loading">
+			
+			<div class="row">
+				<div class="form-group col-sm-12 ">
+					<label for="nome">Nome</label>
+					<input id="nome" type="text" class="form-control"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-sm-6 form-group">
+					<label for="tipo">Tipo pessoa</label>
+					<div>
+						<div class="radio radio-inline">
+							<input type="radio" name="tipo" checked="checked" id="pFisica"/>
+							<label>Física</label>
+						</div>
+						<div class="radio radio-inline">
+							<input type="radio" name="tipo" />
+							<label>Jurídica</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 form-group col-sm-6 ">
+					<label for="cpf_cnpj">CPF/CNPJ</label>
+					<input id="cpf_cnpj" type="text" class="form-control"/>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group col-sm-4">
+					<label for="telefone">Telefone</label>
+					<input id="telefone" type="text" class="form-control"/>
+				</div>
+				<div class="form-group col-sm-8">
+					<label for="email">Email</label>
+					<input id="email" type="text" class="form-control"/>
+				</div>
+			</div>	
+			
+			<div class="row">
+			
+				<div class="form-group col-sm-4">
+					<label for="logradouro">Logradouro</label>
+					<input id="logradouro" type="text" class="form-control"/>
+				</div>
+			
+				<div class="form-group col-sm-4">
+					<label for="numero">Número</label>
+					<input id="numero" type="text" class="form-control"/>
+				</div>
+				
+				<div class="form-group col-sm-4">
+					<label for="complemento">Complemento</label>
+					<input id="complemento" type="text" class="form-control"/>
+				</div>			
+				
+			</div>	
+	
+			<div class="row">
+			
+				<div class="form-group col-sm-4">
+					<label for="cep">CEP</label>
+					<input id="cep" type="text" class="form-control"/>
+				</div>
+			
+				<div class="form-group col-sm-4">
+					<label for="estado">Estado</label>
+					<div class="bw-field-action">
+						<select id="estado" class="form-control" >
+							<option value="">Selecione o estado</option>
+						</select>						
+					</div>
+				</div>
+				
+				<div class="form-group col-sm-4">
+					<label for="cidade">Cidade</label>
+					<div class="bw-field-action">
+						<select id="cidade" class="form-control" >
+							<option value="">Selecione a cidade</option>
+						</select>						
+					</div>
+				</div>		
+				
+			</div>			
+			
+			<div class="form-group">
+				<button class="btn  btn-primary" type="submit">Salvar</button> 
+			</div>
+	
+		</form>
+	</div>	
+	
+	<div th:replace="estilo/CadastroRapidoEstilo :: modal"></div>	
+</section>	
+
+
+<script src="/layout/javascripts/vendors.min.js"></script>
+<script src="/layout/javascripts/algaworks.min.js"></script>
+</body>
+</html>
